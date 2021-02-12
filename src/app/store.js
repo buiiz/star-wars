@@ -14,7 +14,6 @@ const filmsSlice = createSlice({
   },
   reducers: {
     getFilmsStart: (state) => {
-      state.films += 1;
       state.loading = true;
       state.error = null;
     },
