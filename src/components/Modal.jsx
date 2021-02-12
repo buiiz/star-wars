@@ -18,7 +18,7 @@ const Modal = ({ active, setActive, film }) => {
       Promise.all(
         [
           Promise.all(film.planets.map(url => fetch(url).then(res => res.json())))
-            .then(res => setLoading(false)),
+            .then(res => setPlanets([...res])),
 
           Promise.all(film.starships.map(url => fetch(url).then(res => res.json())))
             .then(res => setStarships([...res]))
