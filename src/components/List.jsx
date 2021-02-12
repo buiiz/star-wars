@@ -12,17 +12,17 @@ const List = () => {
 
   const [search, setSearch] = useState('');
   const [isSorted, setIsSorted] = useState(false);
-  // const [modalActive, setModalActive] = useState(false);
-  // const [currentFilm, setCurrentFilm] = useState({});
+  const [modalActive, setModalActive] = useState(false);
+  const [currentFilm, setCurrentFilm] = useState({});
 
   useEffect(() => {
     dispatch(getFilms());
   }, [dispatch]);
 
-  // const handleClick = (film) => {
-  //   setCurrentFilm(film)
-  //   setModalActive(true);
-  // };
+  const handleClick = (film) => {
+    setCurrentFilm(film)
+    setModalActive(true);
+  };
 
   return (
     <>
@@ -73,7 +73,7 @@ const List = () => {
                     <div
                       key={film.episode_id}
                       className={styles['film']}
-                    // onClick={() => handleClick(film)}
+                      onClick={() => handleClick(film)}
                     >
                       {film.title}
                     </div>
@@ -85,7 +85,7 @@ const List = () => {
         </div>
       </div>
 
-      {/* <Modal active={modalActive} setActive={setModalActive} film={currentFilm} /> */}
+      <Modal active={modalActive} setActive={setModalActive} film={currentFilm} />
     </>
   );
 };
